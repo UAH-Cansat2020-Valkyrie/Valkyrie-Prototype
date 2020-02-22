@@ -9,16 +9,20 @@
 
 
 
-void TCInit(TCdef settings)
+void TCInit(TCdef settings)//Initializes a timer counter http://asf.atmel.com/docs/latest/xmegaau/html/xmega_tc_quickstart.html
 {
-	pmic_init();
-	tc_enable(settings.TC);
-	tc_set_overflow_interrupt_callback(settings.TC, settings.FunHandle);
-	tc_set_wgm(settings.TC, TC_WG_NORMAL);
-	tc_write_period(settings.TC, settings.period);
-	tc_set_overflow_interrupt_level(settings.TC, TC_INT_LVL_LO);
-	cpu_irq_enable();
-	tc_write_clock_source(settings.TC, TC_CLKSEL_DIV1024_gc);
+	pmic_init();//init stuff asf does
+	tc_enable(settings.TC);//enables the timer counter 
+	tc_set_overflow_interrupt_callback(settings.TC, settings.FunHandle);//sets the callback function to the function handle in the struct
+	tc_set_wgm(settings.TC, TC_WG_NORMAL);//IDK what this does asf wants it though
+	tc_write_period(settings.TC, settings.period);//sets the number that the timer counter counts to before the interupt is triggered
+	tc_set_overflow_interrupt_level(settings.TC, TC_INT_LVL_LO);//sets the interupt level
+	cpu_irq_enable();// enables something or other
+	tc_write_clock_source(settings.TC, TC_CLKSEL_DIV1024_gc);//sets the prescaler which divides the main clock of 32MG by 1024 which means our clock will count at 31250Hz
+}
+void TC_period_shift(TCdef settings)
+{
+	tc_write_period(settings.TC, settings.period);//sets the number that the timer counter counts to before the interupt is triggered
 }
 void exampleTC(void)//testing the timer counter code by blinking led on microchip at 1Hz
 {
@@ -30,6 +34,9 @@ void exampleTC(void)//testing the timer counter code by blinking led on microchi
 		.FunHandle=example_handle
 	};
 	TCInit(examplestruct);
+	delay_s(5);
+	examplestruct.period=31250/2;
+	TC_period_shift(examplestruct);
 }
 void example_handle(void)
 {

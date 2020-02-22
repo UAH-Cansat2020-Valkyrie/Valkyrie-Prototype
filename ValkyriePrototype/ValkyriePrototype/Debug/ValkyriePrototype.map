@@ -2132,6 +2132,8 @@ Discarded input sections
  .text          0x00000000        0x0 src/drivers/TCLibrary.o
  .data          0x00000000        0x0 src/drivers/TCLibrary.o
  .bss           0x00000000        0x0 src/drivers/TCLibrary.o
+ .text.TC_period_shift
+                0x00000000       0x2e src/drivers/TCLibrary.o
  .debug_macro   0x00000000      0xa96 src/drivers/TCLibrary.o
  .debug_macro   0x00000000       0x10 src/drivers/TCLibrary.o
  .debug_macro   0x00000000      0x1c9 src/drivers/TCLibrary.o
@@ -2734,7 +2736,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1f2a
+.text           0x00000000     0x1f56
  *(.vectors)
  .vectors       0x00000000      0x1fc D:/Program Files (x86)/Atmel/7.0/Packs/atmel/XMEGAA_DFP/1.1.68/gcc/dev/atxmega128a1u/avrxmega7/crtatxmega128a1u.o
                 0x00000000                __vector_default
@@ -3053,21 +3055,23 @@ END GROUP
  .text.board_init
                 0x00001e3e       0x1a src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
                 0x00001e3e                board_init
+ .text.__portable_avr_delay_cycles
+                0x00001e58       0x16 src/drivers/TCLibrary.o
  .text.example_handle
-                0x00001e58        0xe src/drivers/TCLibrary.o
-                0x00001e58                example_handle
- .text.TCInit   0x00001e66       0x6e src/drivers/TCLibrary.o
-                0x00001e66                TCInit
+                0x00001e6e        0xe src/drivers/TCLibrary.o
+                0x00001e6e                example_handle
+ .text.TCInit   0x00001e7c       0x6e src/drivers/TCLibrary.o
+                0x00001e7c                TCInit
  .text.exampleTC
-                0x00001ed4       0x48 src/drivers/TCLibrary.o
-                0x00001ed4                exampleTC
- .text.main     0x00001f1c        0xa src/main.o
-                0x00001f1c                main
-                0x00001f26                . = ALIGN (0x2)
+                0x00001eea       0x5e src/drivers/TCLibrary.o
+                0x00001eea                exampleTC
+ .text.main     0x00001f48        0xa src/main.o
+                0x00001f48                main
+                0x00001f52                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001f26        0x0 d:/program files (x86)/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega7\libgcc.a(_exit.o)
-                0x00001f26                _exit
-                0x00001f26                exit
+ .fini9         0x00001f52        0x0 d:/program files (x86)/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega7\libgcc.a(_exit.o)
+                0x00001f52                _exit
+                0x00001f52                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -3086,11 +3090,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001f26        0x4 d:/program files (x86)/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega7\libgcc.a(_exit.o)
+ .fini0         0x00001f52        0x4 d:/program files (x86)/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega7\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001f2a                _etext = .
+                0x00001f56                _etext = .
 
-.data           0x00802000        0x8 load address 0x00001f2a
+.data           0x00802000        0x8 load address 0x00001f56
                 0x00802000                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -3197,8 +3201,8 @@ END GROUP
  COMMON         0x0080206d        0x8 src/ASF/xmega/drivers/rtc/rtc.o
                 0x0080206d                rtc_data
                 0x00802075                PROVIDE (__bss_end, .)
-                0x00001f2a                __data_load_start = LOADADDR (.data)
-                0x00001f32                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001f56                __data_load_start = LOADADDR (.data)
+                0x00001f5e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00802075        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -3279,7 +3283,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x408
+.debug_aranges  0x00000000      0x418
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x48 src/ASF/xmega/drivers/adc/adc.o
@@ -3302,14 +3306,14 @@ END GROUP
  .debug_aranges
                 0x00000398       0x20 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
  .debug_aranges
-                0x000003b8       0x30 src/drivers/TCLibrary.o
+                0x000003b8       0x40 src/drivers/TCLibrary.o
  .debug_aranges
-                0x000003e8       0x20 src/main.o
+                0x000003f8       0x20 src/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xa0fe
+.debug_info     0x00000000     0xa2ee
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x3e5a D:/Program Files (x86)/Atmel/7.0/Packs/atmel/XMEGAA_DFP/1.1.68/gcc/dev/atxmega128a1u/avrxmega7/crtatxmega128a1u.o
  .debug_info    0x00003e5a      0xa8f src/ASF/xmega/drivers/adc/adc.o
@@ -3322,10 +3326,10 @@ END GROUP
  .debug_info    0x00008ba3       0xa6 src/ASF/xmega/drivers/cpu/ccp.o
  .debug_info    0x00008c49      0x121 src/ASF/common/services/ioport/xmega/ioport_compat.o
  .debug_info    0x00008d6a      0x3db src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_info    0x00009145      0xd98 src/drivers/TCLibrary.o
- .debug_info    0x00009edd      0x221 src/main.o
+ .debug_info    0x00009145      0xf88 src/drivers/TCLibrary.o
+ .debug_info    0x0000a0cd      0x221 src/main.o
 
-.debug_abbrev   0x00000000     0x519e
+.debug_abbrev   0x00000000     0x5240
  *(.debug_abbrev)
  .debug_abbrev  0x00000000     0x3b0e D:/Program Files (x86)/Atmel/7.0/Packs/atmel/XMEGAA_DFP/1.1.68/gcc/dev/atxmega128a1u/avrxmega7/crtatxmega128a1u.o
  .debug_abbrev  0x00003b0e      0x2b4 src/ASF/xmega/drivers/adc/adc.o
@@ -3338,10 +3342,10 @@ END GROUP
  .debug_abbrev  0x00004c19       0x14 src/ASF/xmega/drivers/cpu/ccp.o
  .debug_abbrev  0x00004c2d       0x95 src/ASF/common/services/ioport/xmega/ioport_compat.o
  .debug_abbrev  0x00004cc2      0x14a src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_abbrev  0x00004e0c      0x280 src/drivers/TCLibrary.o
- .debug_abbrev  0x0000508c      0x112 src/main.o
+ .debug_abbrev  0x00004e0c      0x322 src/drivers/TCLibrary.o
+ .debug_abbrev  0x0000512e      0x112 src/main.o
 
-.debug_line     0x00000000     0x5e49
+.debug_line     0x00000000     0x5eae
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x3b5 D:/Program Files (x86)/Atmel/7.0/Packs/atmel/XMEGAA_DFP/1.1.68/gcc/dev/atxmega128a1u/avrxmega7/crtatxmega128a1u.o
  .debug_line    0x000003b5      0x7be src/ASF/xmega/drivers/adc/adc.o
@@ -3354,10 +3358,10 @@ END GROUP
  .debug_line    0x00003d84       0x6e src/ASF/xmega/drivers/cpu/ccp.o
  .debug_line    0x00003df2      0x497 src/ASF/common/services/ioport/xmega/ioport_compat.o
  .debug_line    0x00004289      0x4ce src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_line    0x00004757      0xbc5 src/drivers/TCLibrary.o
- .debug_line    0x0000531c      0xb2d src/main.o
+ .debug_line    0x00004757      0xc2a src/drivers/TCLibrary.o
+ .debug_line    0x00005381      0xb2d src/main.o
 
-.debug_frame    0x00000000     0x17b4
+.debug_frame    0x00000000     0x17e4
  *(.debug_frame)
  .debug_frame   0x00000000       0xbc src/ASF/xmega/drivers/adc/adc.o
  .debug_frame   0x000000bc      0x1c0 src/ASF/xmega/drivers/twi/twim.o
@@ -3367,10 +3371,10 @@ END GROUP
  .debug_frame   0x00000848      0xe84 src/ASF/xmega/drivers/tc/tc.o
  .debug_frame   0x000016cc       0x30 src/ASF/common/services/ioport/xmega/ioport_compat.o
  .debug_frame   0x000016fc       0x24 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_frame   0x00001720       0x70 src/drivers/TCLibrary.o
- .debug_frame   0x00001790       0x24 src/main.o
+ .debug_frame   0x00001720       0xa0 src/drivers/TCLibrary.o
+ .debug_frame   0x000017c0       0x24 src/main.o
 
-.debug_str      0x00000000    0x35167
+.debug_str      0x00000000    0x351dd
  *(.debug_str)
  .debug_str     0x00000000     0x2969 D:/Program Files (x86)/Atmel/7.0/Packs/atmel/XMEGAA_DFP/1.1.68/gcc/dev/atxmega128a1u/avrxmega7/crtatxmega128a1u.o
  .debug_str     0x00002969    0x2f250 src/ASF/xmega/drivers/adc/adc.o
@@ -3391,12 +3395,12 @@ END GROUP
                               0x2c4f0 (size before relaxing)
  .debug_str     0x00033e2c      0x18b src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
                               0x2e7d1 (size before relaxing)
- .debug_str     0x00033fb7     0x119d src/drivers/TCLibrary.o
-                              0x3121b (size before relaxing)
- .debug_str     0x00035154       0x13 src/main.o
+ .debug_str     0x00033fb7     0x1213 src/drivers/TCLibrary.o
+                              0x31448 (size before relaxing)
+ .debug_str     0x000351ca       0x13 src/main.o
                               0x30afe (size before relaxing)
 
-.debug_loc      0x00000000     0x3feb
+.debug_loc      0x00000000     0x40c2
  *(.debug_loc)
  .debug_loc     0x00000000      0x2b3 src/ASF/xmega/drivers/adc/adc.o
  .debug_loc     0x000002b3      0x6fe src/ASF/xmega/drivers/twi/twim.o
@@ -3406,7 +3410,7 @@ END GROUP
  .debug_loc     0x00001ccb     0x2122 src/ASF/xmega/drivers/tc/tc.o
  .debug_loc     0x00003ded       0x66 src/ASF/common/services/ioport/xmega/ioport_compat.o
  .debug_loc     0x00003e53       0x54 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_loc     0x00003ea7      0x144 src/drivers/TCLibrary.o
+ .debug_loc     0x00003ea7      0x21b src/drivers/TCLibrary.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -3426,7 +3430,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x390
+.debug_ranges   0x00000000      0x3a0
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x38 src/ASF/xmega/drivers/adc/adc.o
  .debug_ranges  0x00000038       0xa0 src/ASF/xmega/drivers/twi/twim.o
@@ -3436,8 +3440,8 @@ END GROUP
  .debug_ranges  0x000001b8      0x188 src/ASF/xmega/drivers/tc/tc.o
  .debug_ranges  0x00000340       0x10 src/ASF/common/services/ioport/xmega/ioport_compat.o
  .debug_ranges  0x00000350       0x10 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_ranges  0x00000360       0x20 src/drivers/TCLibrary.o
- .debug_ranges  0x00000380       0x10 src/main.o
+ .debug_ranges  0x00000360       0x30 src/drivers/TCLibrary.o
+ .debug_ranges  0x00000390       0x10 src/main.o
 
 .debug_macro    0x00000000     0x2813
  *(.debug_macro)

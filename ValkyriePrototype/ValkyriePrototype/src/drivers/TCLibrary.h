@@ -17,7 +17,7 @@ typedef struct{
 void TCInit(TCdef settings);
 void exampleTC(void);
 void example_handle(void);
-
+void TC_period_shift(TCdef settings);
 
 
 #endif /* TCLIBRARY_H_ */
