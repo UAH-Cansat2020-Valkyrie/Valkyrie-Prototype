@@ -59,9 +59,9 @@ float getTemperature(void)
 	//float resistance = (8300.0)*((adc_val/3.3)-1);
 	//printf("\n%f\n",resistance);
 	uint32_t temperature = 1.0/(1.0/298.15 + 1.0/3977.0*log(4096.0/(float)adc_val-1.0));
-	printf("temp: %f\n", temperature-273.15);
+	printf("temp: %3.2f\n", (float) temperature-273.15);
 
-	printf("%f\n", adc_val);
+	printf("%i\n", adc_val);
 	return (temperature - 273.15);
 	
 }
