@@ -31,13 +31,23 @@
 /*
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
-#include <asf.h>
-#include "drivers/TCLibrary.h"
+
+
+#include "def.h"
 int main (void)
 {
 	board_init();
 	sysclk_init();
+	uart_terminal_init();
 	
+	pmic_init();
+	pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
+	cpu_irq_enable();
+	
+	printf("u Gay");
+	
+	//spi_init_pins();
+	thermistor_init();
 	exampleTC();
 	/* Insert application code here, after the board has been initialized. */
 
@@ -51,5 +61,8 @@ int main (void)
 			///* No, so turn LED off. */
 			//ioport_set_pin_level(LED_0_PIN, !LED_0_ACTIVE);
 		//}
+		
+		
+		int tempura = getTemperature();
 	}
 }

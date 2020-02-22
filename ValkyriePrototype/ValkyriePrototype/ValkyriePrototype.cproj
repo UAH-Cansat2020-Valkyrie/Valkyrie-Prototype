@@ -151,7 +151,7 @@
   <documentation help="http://asf.atmel.com/docs/3.47.0/common.applications.user_application.xplained_pro.xmega_a1u_xplained_pro/html/index.html" />
   <offline-documentation help="" />
   <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.34.1" />
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.39.0" />
   </dependencies>
   <project id="common.applications.user_application.xplained_pro.xmega_a1u_xplained_pro" value="Add" config="" content-id="Atmel.ASF" />
   <board id="board.xmega_a1u_xplained_pro" value="Add" config="" content-id="Atmel.ASF" />
@@ -471,6 +471,15 @@
     <Compile Include="src\ASF\xmega\drivers\usart\usart.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\def.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\adc_sensors.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\adc_sensors.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\m_ms5607.c">
       <SubType>compile</SubType>
     </Compile>
@@ -739,6 +748,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\TCLibrary.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\uart.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\main.c">

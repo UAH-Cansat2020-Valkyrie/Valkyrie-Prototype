@@ -10,6 +10,8 @@ src\ASF\xmega\drivers\twi\twim.c
 
 src\ASF\xmega\drivers\usart\usart.c
 
+src\drivers\adc_sensors.c
+
 src\drivers\m_ms5607.c
 
 src\ASF\xmega\drivers\twi\twis.c
@@ -49,6 +51,8 @@ src\ASF\common\services\ioport\xmega\ioport_compat.c
 src\ASF\xmega\boards\xmega_a1u_xplained_pro\board_init.c
 
 src\drivers\TCLibrary.c
+
+src\drivers\uart.c
 
 src\main.c
 
