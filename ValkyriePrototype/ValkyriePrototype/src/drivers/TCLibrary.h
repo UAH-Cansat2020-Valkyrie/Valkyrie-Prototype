@@ -12,7 +12,8 @@ typedef struct{
 	PORT_t * port;
 	TC0_t * TC;
 	uint16_t period;
-	void (*FunHandle)(void)
+	void (*FunHandle)(void);
+	uint16_t prescale;
 }TCdef;
 void TCInit(TCdef settings);
 void exampleTC(void);

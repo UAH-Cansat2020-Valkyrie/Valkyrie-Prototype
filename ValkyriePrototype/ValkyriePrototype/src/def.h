@@ -17,6 +17,7 @@
 #include "drivers/adc_sensors.h"
 #include "drivers/uart.h"
 #include "drivers/TCLibrary.h"
+#include "drivers/Servo90Driver.h"
 // If the preprocessor setting DEBUG is defined in visual studio
 //   Set up so this occurs in debug but not release builds
 //   used for displaying simple debug output to the console.

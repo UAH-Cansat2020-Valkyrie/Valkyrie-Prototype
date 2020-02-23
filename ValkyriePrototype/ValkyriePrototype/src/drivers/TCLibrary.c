@@ -18,7 +18,7 @@ void TCInit(TCdef settings)//Initializes a timer counter http://asf.atmel.com/do
 	tc_write_period(settings.TC, settings.period);//sets the number that the timer counter counts to before the interupt is triggered
 	tc_set_overflow_interrupt_level(settings.TC, TC_INT_LVL_LO);//sets the interupt level
 	cpu_irq_enable();// enables something or other
-	tc_write_clock_source(settings.TC, TC_CLKSEL_DIV1024_gc);//sets the prescaler which divides the main clock of 32MG by 1024 which means our clock will count at 31250Hz
+	tc_write_clock_source(settings.TC, settings.prescale);//sets the prescaler which divides the main clock of 32MG by 1024 which means our clock will count at 31250Hz
 }
 void TC_period_shift(TCdef settings)
 {
@@ -31,7 +31,8 @@ void exampleTC(void)//testing the timer counter code by blinking led on microchi
 		.port=&PORTE,
 		.TC=&TCE0,
 		.period=31250,
-		.FunHandle=example_handle
+		.FunHandle=example_handle,
+		.prescale=TC_CLKSEL_DIV1024_gc
 	};
 	TCInit(examplestruct);
 	delay_s(5);
