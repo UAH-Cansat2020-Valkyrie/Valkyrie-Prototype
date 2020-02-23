@@ -46,7 +46,7 @@ int main (void)
 	
 	printf("u Gay");
 	
-	//spi_init_pins();
+	spi_init_pins();
 	thermistor_init();
 	exampleTC();
 	/* Insert application code here, after the board has been initialized. */
@@ -54,15 +54,15 @@ int main (void)
 	/* This skeleton code simply sets the LED to the state of the button. */
 	while (1) {
 		/* Is button pressed? */
-		//if (ioport_get_pin_level(BUTTON_0_PIN) == BUTTON_0_ACTIVE) {
-			///* Yes, so turn LED on. */
-			//ioport_set_pin_level(LED_0_PIN, LED_0_ACTIVE);
-		//} else {
-			///* No, so turn LED off. */
-			//ioport_set_pin_level(LED_0_PIN, !LED_0_ACTIVE);
-		//}
+		if (ioport_get_pin_level(BUTTON_0_PIN) == BUTTON_0_ACTIVE) {
+			/* Yes, so turn LED on. */
+			ioport_set_pin_level(LED_0_PIN, LED_0_ACTIVE);
+		} else {
+			/* No, so turn LED off. */
+			ioport_set_pin_level(LED_0_PIN, !LED_0_ACTIVE);
+		}
 		
-		
+		long pressure = getPressure();
 		int tempura = getTemperature();
 	}
 }

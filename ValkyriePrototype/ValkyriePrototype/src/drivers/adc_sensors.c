@@ -14,10 +14,15 @@ void adc_init(ADC_t* adc, uint8_t ch_mask, uint8_t pos)
 	adc_read_configuration(adc, &adc_conf);
 	adcch_read_configuration(adc, ch_mask, &adcch_conf);
 	adc_set_conversion_parameters(&adc_conf, ADC_SIGN_OFF, ADC_RES_12,
-	ADC_REF_VCC);
+	ADC_REF_BANDGAP);
 	adc_set_conversion_trigger(&adc_conf, ADC_TRIG_MANUAL, 1, 0);
 	adc_set_clock_rate(&adc_conf, 200000UL);
 	adcch_set_input(&adcch_conf, pos, ADCCH_NEG_NONE, 1);
+	
+	adc_set_gain_impedance_mode(&adc_conf, ADC_GAIN_HIGHIMPEDANCE);
+	adc_enable_internal_input(&adc_conf, ADC_INT_BANDGAP);
+
+
 	adc_write_configuration(adc, &adc_conf);
 	adcch_write_configuration(adc, ch_mask, &adcch_conf);
 	
@@ -31,7 +36,7 @@ float getADCRead(ADC_t* adc, uint8_t ch_mask)
 	
 	adc_start_conversion(adc, ch_mask);
 	adc_wait_for_interrupt_flag(adc, ch_mask);
-	uint16_t adcReading = adc_get_result(adc, ch_mask);
+	uint32_t adcReading = adc_get_result(adc, ch_mask);
 	//printf("ADC reading = %u\n", adcReading);
 	//float voltage = adcReading/4096.0*2;	//We have to find these numbers by applying differing voltage, printing ADC readings, and solve equation
 	//printf("voltage: %f \n", voltage);
@@ -55,13 +60,16 @@ void thermistor_init(void)
 
 float getTemperature(void)
 {
-	float adc_val = getADCRead(&THERM_ADC,THERM_ADC_CH)*.636;
-	//float resistance = (8300.0)*((adc_val/3.3)-1);
+	float adc_val = getADCRead(&THERM_ADC,THERM_ADC_CH);
 	//printf("\n%f\n",resistance);
-	uint32_t temperature = 1.0/(1.0/298.15 + 1.0/3977.0*log(4096.0/(float)adc_val-1.0));
+	float vol = adc_val/4096-0.04;
+	float resistance = 1000*(3.3/vol-1);
+	float temperature = 1.0/(1.0/(25+273.15) + 1.0/3380.0*log(resistance/10000));
+	//float temperature = (3380.0*(25+273.15))/(3380.0+(25+273.15)*log(resistance/10000));
+	//uint32_t temperature = (adc_val );
 	printf("temp: %3.2f\n", (float) temperature-273.15);
+	//printf("Voltage: %f\n", resistance);
 
-	printf("%i\n", adc_val);
 	return (temperature - 273.15);
 	
 }
