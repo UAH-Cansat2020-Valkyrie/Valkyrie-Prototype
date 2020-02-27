@@ -15,10 +15,12 @@ typedef struct{
 	void (*FunHandle)(void);
 	uint16_t prescale;
 }TCdef;
+
 void TCInit(TCdef settings);
 void exampleTC(void);
 void example_handle(void);
 void TC_period_shift(TCdef settings);
-
+void TC_on(TCdef tc);
+void TC_off(TCdef tc);
 
 #endif /* TCLIBRARY_H_ */

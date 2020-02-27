@@ -158,7 +158,7 @@
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
-    <avrtoolserialnumber>ATML1802021800001452</avrtoolserialnumber>
+    <avrtoolserialnumber>ATML1802021800001400</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E974C</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions>
@@ -181,7 +181,7 @@
         <InterfaceName>PDI</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
-      <ToolNumber>ATML1802021800001452</ToolNumber>
+      <ToolNumber>ATML1802021800001400</ToolNumber>
       <ToolName>EDBG</ToolName>
     </com_atmel_avrdbg_tool_edbg>
     <avrtoolinterfaceclock>4000000</avrtoolinterfaceclock>
@@ -480,6 +480,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\adc_sensors.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\ContServ.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\ContServ.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\m_ms5607.c">

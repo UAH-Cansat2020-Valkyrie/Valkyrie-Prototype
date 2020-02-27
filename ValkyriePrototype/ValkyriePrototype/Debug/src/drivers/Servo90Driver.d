@@ -79,7 +79,7 @@ src/drivers/Servo90Driver.d src/drivers/Servo90Driver.o: \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/drivers/wdt/wdt.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/drivers/TCLibrary.h ../src/drivers/Servo90Driver.h
+ ../src/drivers/Servo90Driver.h ../src/drivers/TCLibrary.h
 
 ../src/asf.h:
 
@@ -261,6 +261,6 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
 
-../src/drivers/TCLibrary.h:
-
 ../src/drivers/Servo90Driver.h:
+
+../src/drivers/TCLibrary.h:

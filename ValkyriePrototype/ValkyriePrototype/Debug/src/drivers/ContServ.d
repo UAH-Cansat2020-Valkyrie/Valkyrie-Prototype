@@ -1,5 +1,4 @@
-src/drivers/adc_sensors.d src/drivers/adc_sensors.o: \
- ../src/drivers/adc_sensors.c ../src/drivers/adc_sensors.h ../src/def.h \
+src/drivers/ContServ.d src/drivers/ContServ.o: ../src/drivers/ContServ.c \
  ../src/asf.h ../src/ASF/xmega/drivers/adc/adc.h \
  ../src/ASF/xmega/utils/compiler.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
@@ -80,14 +79,8 @@ src/drivers/adc_sensors.d src/drivers/adc_sensors.o: \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/drivers/wdt/wdt.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../src/drivers/m_ms5607.h ../src/drivers/adc_sensors.h \
- ../src/drivers/uart.h ../src/drivers/TCLibrary.h \
- ../src/drivers/Servo90Driver.h ../src/drivers/TCLibrary.h
-
-../src/drivers/adc_sensors.h:
-
-../src/def.h:
+ ../src/drivers/ContServ.h ../src/drivers/Servo90Driver.h \
+ ../src/drivers/TCLibrary.h
 
 ../src/asf.h:
 
@@ -269,15 +262,7 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
 
-d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-../src/drivers/m_ms5607.h:
-
-../src/drivers/adc_sensors.h:
-
-../src/drivers/uart.h:
-
-../src/drivers/TCLibrary.h:
+../src/drivers/ContServ.h:
 
 ../src/drivers/Servo90Driver.h:
 

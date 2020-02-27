@@ -8,6 +8,8 @@
 
 #ifndef SERVO90DRIVER_H_
 #define SERVO90DRIVER_H_
+#include "drivers/TCLibrary.h"
+
 //constants
 #define SERVO1_90_DEGREE_PER 30
 #define SERVO1_MINUS90_DEGREE_PER 62
@@ -31,4 +33,6 @@ uint16_t s90_degree2period (uint8_t degree);
 void serv1_init();
 void serv1handle();
 uint16_t myround(float num);
+Servo_off(servo_def serv);
+Servo_on(servo_def serv);
 #endif /* SERVO90DRIVER_H_ */

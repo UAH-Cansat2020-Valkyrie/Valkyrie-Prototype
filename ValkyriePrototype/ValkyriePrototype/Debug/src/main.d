@@ -81,7 +81,7 @@ src/main.d src/main.o: ../src/main.c ../src/def.h ../src/asf.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../src/drivers/m_ms5607.h ../src/drivers/adc_sensors.h ../src/def.h \
  ../src/drivers/uart.h ../src/drivers/TCLibrary.h \
- ../src/drivers/Servo90Driver.h
+ ../src/drivers/Servo90Driver.h ../src/drivers/TCLibrary.h
 
 ../src/def.h:
 
@@ -278,3 +278,5 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 ../src/drivers/TCLibrary.h:
 
 ../src/drivers/Servo90Driver.h:
+
+../src/drivers/TCLibrary.h:

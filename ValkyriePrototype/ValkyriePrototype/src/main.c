@@ -45,16 +45,13 @@ int main (void)
 	//cpu_irq_enable();
 	
 	printf("y are u Gay?\n");
-	serv1_init();
+	//serv1_init();
 	//spi_init_pins();
 	//thermistor_init();
-	//exampleTC();
-	
+	exampleTC();
 	/* Insert application code here, after the board has been initialized. */
 	/* This skeleton code simply sets the LED to the state of the button. */
 	while (1) {
-	
-		
 		//long pressure = getPressure();
 		//int tempura = getTemperature();
 	}

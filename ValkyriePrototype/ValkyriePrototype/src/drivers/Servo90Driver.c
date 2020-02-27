@@ -5,7 +5,6 @@
  *  Author: natha
  */ 
 #include <asf.h>
-#include "drivers/TCLibrary.h"
 #include "drivers/Servo90Driver.h"
 static servo_def serv1, serv2, serv3;
 
@@ -43,6 +42,15 @@ void serv1handle()
 {
 	printf("hello there\n\s");
 	(*serv1.port).OUT^=serv1.pin;
+}
+Servo_off(servo_def serv)
+{
+	TC_off(serv.tc);//turn timer counter off
+	(*serv.port).OUT&=~serv.pin;//clear pin
+}
+Servo_on(servo_def serv)
+{
+	TC_on(serv.tc);//re enables the servo by turning it on
 }
 uint16_t myround(float num)
 {
