@@ -14,6 +14,8 @@ src\drivers\adc_sensors.c
 
 src\drivers\ContServ.c
 
+src\drivers\m_gps.c
+
 src\drivers\m_ms5607.c
 
 src\ASF\xmega\drivers\twi\twis.c

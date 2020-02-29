@@ -49,15 +49,15 @@ void openlog_init(uart_device * openLog)
 	openLog->rx=0b01000000;
 }
 
-void gps_init(uart_device * gps)
+void gps_init(uart_device *gps)
 {
-	
-	gps->Baud=115200;
-	gps->Port=&PORTD;
-	gps->Usart=&USARTD1;
-	gps->tx=0b10000000;
-	gps->rx=0b01000000;
+	gps->Baud=GPS_BAUD;
+	gps->Port=&GPS_PORT;
+	gps->Usart=&GPS_USART;
+	gps->tx=GPS_SEND_PIN;
+	gps->rx=GPS_RECIEVE_PIN;
 }
+
 
 uint8_t uart_read(uart_device * device)
 {
@@ -94,3 +94,6 @@ void uart_terminal_init()
 		printf("UART Initialized\n");
 	}
 	}
+	
+	
+	

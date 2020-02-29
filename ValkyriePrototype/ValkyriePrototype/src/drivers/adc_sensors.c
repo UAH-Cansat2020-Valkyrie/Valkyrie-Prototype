@@ -67,7 +67,7 @@ float getTemperature(void)
 	float temperature = 1.0/(1.0/(25+273.15) + 1.0/3380.0*log(resistance/10000));
 	//float temperature = (3380.0*(25+273.15))/(3380.0+(25+273.15)*log(resistance/10000));
 	//uint32_t temperature = (adc_val );
-	printf("temp: %3.2f\n", (float) temperature-273.15);
+	//printf("temp: %3.2f\n", (float) temperature-273.15);
 	//printf("Voltage: %f\n", resistance);
 
 	return (temperature - 273.15);

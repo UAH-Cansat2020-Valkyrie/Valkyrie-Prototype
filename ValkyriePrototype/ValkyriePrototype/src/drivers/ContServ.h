@@ -14,4 +14,8 @@
 #define ADDNUM 148
 #define MULTNUM 0.8268733
 
+
+void cont_servo_init(servo_def serv);
+void set_speed(servo_def serv, uint8_t speed);
+
 #endif /* CONTSERV_H_ */

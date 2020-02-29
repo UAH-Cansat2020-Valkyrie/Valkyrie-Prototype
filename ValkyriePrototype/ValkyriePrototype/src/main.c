@@ -33,26 +33,66 @@
  */
 
 
+
+
 #include "def.h"
+
+ISR(GPS_RECEIVE_INTERRUPT_VECTOR)
+{
+	//uint8_t c = GPS_USART.DATA;
+	
+	//printf("%i", c);
+	printf("Hell");
+	if(current_sentence == SENTENCE_GPGGA)
+	{
+		//gpgga_buff[gpgga_index] = c;
+		
+	}
+	
+	
+}
+
+
 int main (void)
 {
+	
+	uart_device*gps = NULL;
 	board_init();
 	sysclk_init();
 	uart_terminal_init();
 	
+	
 	pmic_init();
-	//pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
-	//cpu_irq_enable();
+	pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
+	cpu_irq_enable();
 	
 	printf("y are u Gay?\n");
 	//serv1_init();
 	//spi_init_pins();
-	//thermistor_init();
-	exampleTC();
+	thermistor_init();
+	//exampleTC();
+	
+	char* buff[80];
+	gps_init(gps);
+	uart_init(gps);
+	UARTWriteArray(*gps, "");
+	UARTWriteArray(*gps, "$PMTK220,1000*2F");
+	UARTWriteArray(*gps, "$PMTK251,57600*2C");
+	UARTWriteArray(*gps, "$PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29");
+	
+	UARTWriteArray(*gps, "$PMTK161,0*28");
+	UARTReadArray(*gps,buff);
+	printf(buff);
 	/* Insert application code here, after the board has been initialized. */
 	/* This skeleton code simply sets the LED to the state of the button. */
+	
 	while (1) {
 		//long pressure = getPressure();
-		//int tempura = getTemperature();
+		//UARTWriteArray(*gps, "$PMTK104*37");
+		UARTWriteArray(*gps, "$PMTK161,0*28");
+		int tempura = getTemperature();
+		UARTReadArray(*gps, buff);
+		printf("%s",buff);
+		//printf("HELL");
 	}
 }

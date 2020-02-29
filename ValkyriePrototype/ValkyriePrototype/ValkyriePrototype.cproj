@@ -488,6 +488,12 @@
     <Compile Include="src\drivers\ContServ.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\m_gps.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\m_gps.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\m_ms5607.c">
       <SubType>compile</SubType>
     </Compile>

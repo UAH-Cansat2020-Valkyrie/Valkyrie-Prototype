@@ -30,9 +30,9 @@ typedef struct{
 void servo_90degree_init(uint8_t pos,servo_def servo);
 void move_servo(uint8_t degree, servo_def serv);
 uint16_t s90_degree2period (uint8_t degree);
-void serv1_init();
-void serv1handle();
+void serv1_init(void);
+void serv1handle(void);
 uint16_t myround(float num);
-Servo_off(servo_def serv);
-Servo_on(servo_def serv);
+void Servo_off(servo_def serv);
+void Servo_on(servo_def serv);
 #endif /* SERVO90DRIVER_H_ */
