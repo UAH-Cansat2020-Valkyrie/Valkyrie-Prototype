@@ -13,6 +13,8 @@
 #include <asf.h>
 
 #include <math.h>
+#include "drivers/OpenLog.h"
+#include "drivers/ContServ.h"
 #include "drivers/m_ms5607.h"
 #include "drivers/adc_sensors.h"
 #include "drivers/uart.h"

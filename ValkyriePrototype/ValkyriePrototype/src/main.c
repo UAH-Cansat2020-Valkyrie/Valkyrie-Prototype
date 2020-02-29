@@ -56,7 +56,7 @@ ISR(GPS_RECEIVE_INTERRUPT_VECTOR)
 int main (void)
 {
 	
-	uart_device*gps = NULL;
+	//uart_device*gps = NULL;
 	board_init();
 	sysclk_init();
 	uart_terminal_init();
@@ -69,30 +69,35 @@ int main (void)
 	printf("y are u Gay?\n");
 	//serv1_init();
 	//spi_init_pins();
-	thermistor_init();
+	//thermistor_init();
 	//exampleTC();
 	
-	char* buff[80];
-	gps_init(gps);
-	uart_init(gps);
-	UARTWriteArray(*gps, "");
-	UARTWriteArray(*gps, "$PMTK220,1000*2F");
-	UARTWriteArray(*gps, "$PMTK251,57600*2C");
-	UARTWriteArray(*gps, "$PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29");
-	
-	UARTWriteArray(*gps, "$PMTK161,0*28");
-	UARTReadArray(*gps,buff);
-	printf(buff);
+	//char* buff[80];
+	//gps_init(gps);
+	//uart_init(gps);
+	//UARTWriteArray(*gps, "");
+	//UARTWriteArray(*gps, "$PMTK220,1000*2F");
+	//UARTWriteArray(*gps, "$PMTK251,57600*2C");
+	//UARTWriteArray(*gps, "$PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29");
+	//
+	//UARTWriteArray(*gps, "$PMTK161,0*28");
+	//UARTReadArray(*gps,buff);
+	//printf(buff);
 	/* Insert application code here, after the board has been initialized. */
 	/* This skeleton code simply sets the LED to the state of the button. */
-	
+	//cont_serv1_init();
+	//set_speed(continueous_servo1,0);
+	PORTA.DIR|=0x08;
 	while (1) {
+		PORTA.OUT^=0x08;
+		delay_ms(1);
 		//long pressure = getPressure();
 		//UARTWriteArray(*gps, "$PMTK104*37");
-		UARTWriteArray(*gps, "$PMTK161,0*28");
-		int tempura = getTemperature();
-		UARTReadArray(*gps, buff);
-		printf("%s",buff);
+		//UARTWriteArray(*gps, "$PMTK161,0*28");
+		//int tempura = getTemperature();
+		//UARTReadArray(*gps, buff);
+		//printf("%s",buff);
 		//printf("HELL");
+		
 	}
 }
