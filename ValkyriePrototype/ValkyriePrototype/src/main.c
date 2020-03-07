@@ -87,10 +87,9 @@ int main (void)
 	/* This skeleton code simply sets the LED to the state of the button. */
 	//cont_serv1_init();
 	//set_speed(continueous_servo1,0);
-	PORTA.DIR|=0x08;
+	serv1_init();
 	while (1) {
-		PORTA.OUT^=0x08;
-		delay_ms(1);
+		
 		//long pressure = getPressure();
 		//UARTWriteArray(*gps, "$PMTK104*37");
 		//UARTWriteArray(*gps, "$PMTK161,0*28");

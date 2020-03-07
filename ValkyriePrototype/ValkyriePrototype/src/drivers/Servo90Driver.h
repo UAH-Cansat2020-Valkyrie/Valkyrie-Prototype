@@ -11,9 +11,8 @@
 #include "drivers/TCLibrary.h"
 
 //constants
-#define SERVO1_90_DEGREE_PER 30
-#define SERVO1_MINUS90_DEGREE_PER 62
-#define SERVO_INCREMENT 5.625
+#define SERVO1_MINUS90_DEGREE_PER 147
+#define SERVO_INCREMENT 0.8269
 #define SERVO1_90_PORT &PORTA
 #define SERVO1_90_PIN 0x01
 #define SERVO1_TC (&TCE1)
@@ -27,12 +26,11 @@ typedef struct{
 	}servo_def;
 	
 //prototypes
-void servo_90degree_init(uint8_t pos,servo_def servo);
+void servo_90degree_init(servo_def servo);
 void move_servo(uint8_t degree, servo_def serv);
 uint16_t s90_degree2period (uint8_t degree);
 void serv1_init(void);
 void serv1handle(void);
-uint16_t myround(float num);
 void Servo_off(servo_def serv);
 void Servo_on(servo_def serv);
 #endif /* SERVO90DRIVER_H_ */

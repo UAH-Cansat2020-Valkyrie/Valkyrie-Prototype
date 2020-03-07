@@ -8,20 +8,21 @@
 #include "drivers/Servo90Driver.h"
 static servo_def serv1, serv2, serv3;
 
-void servo_90degree_init(uint8_t pos,servo_def servo)//takes the struct with all the servo info and initializes it
+void servo_90degree_init(servo_def servo)//takes the struct with all the servo info and initializes it
 {
-	//servo.tc.period=s90_degree2period(pos);
-	servo.tc.period=62500;
 	(*servo.port).DIR|=servo.pin;
 	TCInit((TCdef)servo.tc);
+	Servo_off(servo);
 }
 void move_servo(uint8_t degree, servo_def serv)//moves servo to specified position from 0 to 180
 {
 	serv.tc.period= s90_degree2period(degree);
+	TC_period_shift(serv.tc);
+	Servo_on(serv);
 }
 uint16_t s90_degree2period (uint8_t degree)//converts the a degree position to a number the timer counter can use
 {
-	uint16_t per=(uint16_t) myround((((float)degree)*SERVO_INCREMENT+SERVO1_MINUS90_DEGREE_PER));
+	uint16_t per=(uint16_t)((((float)degree)*SERVO_INCREMENT+SERVO1_MINUS90_DEGREE_PER));
 	return per;
 }
 
@@ -36,29 +37,20 @@ void serv1_init()//initializes the first servo
 		.prescale=TC_CLKSEL_DIV256_gc
 	};
 	serv1.tc=TC1;
-	servo_90degree_init(90,serv1);
+	servo_90degree_init(serv1);
+	move_servo(0,serv1);
 }
 void serv1handle()
 {
 	printf("hello there\n\s");
 	(*serv1.port).OUT^=serv1.pin;
 }
-Servo_off(servo_def serv)
+void Servo_off(servo_def serv)
 {
 	TC_off(serv.tc);//turn timer counter off
 	(*serv.port).OUT&=~serv.pin;//clear pin
 }
-Servo_on(servo_def serv)
+void Servo_on(servo_def serv)
 {
 	TC_on(serv.tc);//re enables the servo by turning it on
-}
-uint16_t myround(float num)
-{
-	uint16_t outnum=(uint16_t)num;
-	num=(float)(num-outnum);
-	if(num>0.5)
-	{
-		outnum++;
-	}
-	return outnum;
 }
